@@ -17,23 +17,21 @@
         <div class="table-responsive">
           <table class="table table-bordered table-striped table-hover">
           <tr>
-            <th>Nama_surat</th>
-            
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Nama Surat</th>          
+            <th>Option</th>
           </tr>
           @foreach ($surahs as $surah)
             <tr>
-              <td><a href="{{ url("surahs", $surah->id) }}">{{ $surah->nama_surat }}</a></td>
-              
+              <td><a href="{{ url("surahs", $surah->id) }}">{{ $surah->nama_surat }} {{ $surah->arab_surat }} {{ $surah->arti_surat }}</a></td>
+              <div>
               <td>
                 <a class="btn btn-info" href="{{ action('SurahsController@edit', $surah->id) }}"><i class="fa fa-pencil"></i> Edit</a>
-              </td>
-              <td>
+             
               {!! Form::open(['action' => ['SurahsController@destroy', $surah->id], 'method' => 'DELETE']) !!}
                 <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
               {!! Form::close() !!}
               </td>
+              </div>
             </tr>
           @endforeach
           </table>

@@ -94,7 +94,7 @@ class SurahsController extends Controller
     {
          $surah = Surah::findOrFail($id);
         $surah->delete();
-        Session::flash('Surah has been deleted successfully.');
+        Session::flash('notice','Surah has been deleted successfully.');
         return redirect('surahs');
     }
 }

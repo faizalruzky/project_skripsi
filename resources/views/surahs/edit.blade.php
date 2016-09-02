@@ -9,7 +9,6 @@
   		<li><a href="{{ url('surahs') }}">Surahs</a></li>
   		<li>Edit</li>
   	</ol>
-  	@include('flash::message')
     {!! Form::model($surah, ['method' => 'PATCH', 'action' => ['SurahsController@update', $surah->id]]) !!}
       @include('surahs.form', ['submitText' => '<i class="fa fa-check"></i> Update'])
     {!! Form::close() !!}
