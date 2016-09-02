@@ -15,14 +15,18 @@
       </div>
       <div class="panel-body">
         <div class="table-responsive">
-          <table class="table table-bordered table-striped table-hover">
+          <table class="table table-bordered table-striped table-hover">                
           <tr>
+            <th>No Ayat</th>
             <th>Nama Surat</th>          
             <th>Option</th>
           </tr>
+           {{-- */$x=0;/* --}}
           @foreach ($surahs as $surah)
+          {{-- */$x++;/* --}}
             <tr>
-              <td><a href="{{ url("surahs", $surah->id) }}">{{ $surah->nama_surat }} {{ $surah->arab_surat }} {{ $surah->arti_surat }}</a></td>
+            <td>{{ $x }}</td>
+              <td><a href="{{ url("surahs", $surah->id) }}">{{ $surah->nama_surat }} <h4>{{ $surah->arab_surat }}</h4> {{ $surah->arti_surat }}</a></td>
               <div>
               <td>
                 <a class="btn btn-info" href="{{ action('SurahsController@edit', $surah->id) }}"><i class="fa fa-pencil"></i> Edit</a>
