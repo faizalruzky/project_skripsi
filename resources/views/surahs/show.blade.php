@@ -17,7 +17,7 @@
         <div class="panel-body">
             <div class=table-responsive>
                 <div>
-                    <p><b>Nama Surat</b>: {{ $surah->nama_surat }}</p>
+                    <p><b>Surat</b>: {{ $surah->nama_surat }}<h4>{{ $surah->arab_surat}}</h4>{{ $surah->arti_surat }}</p>
                 </div>
                 <table class="table table-bordered table-striped table-hover">
                     <div>
