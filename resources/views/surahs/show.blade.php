@@ -31,11 +31,15 @@
                         <tr>
                             <td>{{$quran->terjemah}}</td>
                         </tr>
-                        @endforeach         
+                               
                     </div>
-                </table>
+                     @endforeach 
+                </table> 
+                {!! $qurans->links() !!}
+                    
             </div>
         </div>
+
     </div>
 </div>
 @stop
