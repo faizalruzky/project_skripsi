@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Pagination\Paginator;
 use Session;
 use Validator;
 use App\Http\Requests;
 use App\Surah;
+use App\Quran;
 
 class SurahsController extends Controller
 {
@@ -52,9 +55,10 @@ class SurahsController extends Controller
      */
     public function show($id)
     {
-       $surah = Surah::findOrFail($id);
-        $qurans = Surah::find($id)->qurans;
-        return view('surahs.show')->with('surah',$surah)->with('qurans',$qurans);
+       $surah = Surah::findOrFail($id);       
+       $qurans = $surah->qurans()->paginate(15);
+       //dd(get_class($qurans));
+        return view('surahs.show', compact('qurans','surah'));
     }
 
     /**
