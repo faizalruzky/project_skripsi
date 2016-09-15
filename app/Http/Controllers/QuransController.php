@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Pagination\Paginator;
 use App\Http\Requests;
 use App\Quran;
+use App\Surah;
 
 class QuransController extends Controller
 {
@@ -16,7 +18,7 @@ class QuransController extends Controller
      */
     public function index()
     {
-        $qurans = Quran::paginate(3);
+        $qurans = Quran::paginate(5);
         return view('qurans.index')->with('qurans', $qurans);
     }
 }
