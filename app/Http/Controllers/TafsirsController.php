@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Tafsir;
+use App\Surah;
 
 class TafsirsController extends Controller
 {
@@ -15,7 +17,8 @@ class TafsirsController extends Controller
      */
     public function index()
     {
-        //
+        $surahs = Surah::paginate(10);
+        return view('tafsirs.index')->with('surahs',$surahs);
     }
 
     /**
@@ -25,7 +28,7 @@ class TafsirsController extends Controller
      */
     public function create()
     {
-        //
+        return view('tafsirs.create');
     }
 
     /**
@@ -36,7 +39,9 @@ class TafsirsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Tafsir::create($request->all());
+        Session::flash('notice','Tafsir has been created succesfully');
+        return redirect('tafsirs');
     }
 
     /**
@@ -47,7 +52,9 @@ class TafsirsController extends Controller
      */
     public function show($id)
     {
-        //
+        $surah = Surah::findOrFail($id);
+        $tafsirs = $surah->tafsirs()->paginate(15);
+        return view('tafsirs.show',compact('tafsirs','surah'));
     }
 
     /**
@@ -58,7 +65,8 @@ class TafsirsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tafsir = Tafsir::findOrFail($id);
+        return view('tafsirs.edit',compact('tafsir'));
     }
 
     /**
@@ -70,7 +78,10 @@ class TafsirsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tafsir = Tafsir::findOrFail($id);
+        $tafsir->update($request->all());
+        Session::flash('notice', 'Tafsir has been updated succesfully.');
+        return redirect('tafsirs');
     }
 
     /**
@@ -81,6 +92,9 @@ class TafsirsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tafsir = Tafsir::findOrFail($id);
+        $tafsir->delete();
+        Session::flash('notice','Tafsir has been deleted succesfully.');
+        return redirect('tafsirs');
     }
 }
