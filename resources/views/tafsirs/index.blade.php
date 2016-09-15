@@ -4,13 +4,13 @@
   <div class="container">
     <ol class="breadcrumb">
       <li><a href="{{ url('/home') }}">Home</a></li>
-      <li><a href="{{ url('surahs') }}">Surahs</a></li>
+      <li><a href="{{ url('tafsirs') }}">Tafsirs</a></li>
     </ol>
     <div class="panel panel-info">
       <div class="panel-heading">
-        <h3 class="visible-lg-inline visible-md-inline">Surahs</h3>
-        <a href="{{ url('surahs/create') }}" class="btn btn-primary pull-right">
-          <i class="fa fa-plus"></i> Create Surah
+        <h3 class="visible-lg-inline visible-md-inline">Tafsir</h3>
+        <a href="{{ url('tafsirs/create') }}" class="btn btn-primary pull-right">
+          <i class="fa fa-plus"></i> Add Tafsirs
         </a>
       </div>
       <div class="panel-body">
@@ -26,7 +26,7 @@
           {{-- */$x++;/* --}}
             <tr>
             <td>{{ $x }}</td>
-              <td><a href="{{ url("surahs",$surah->id) }}">{{ $surah->nama_surat }} <h4>{{ $surah->arab_surat }}</h4> {{ $surah->arti_surat }}</a></td>
+              <td><a href="{{ url("tafsirs",$surah->id) }}">{{ $surah->nama_surat }} <h4>{{ $surah->arab_surat }}</h4> {{ $surah->arti_surat }}</a></td>
               <div>
               <td>
                 <a class="btn btn-info" href="{{ action('SurahsController@edit', $surah->id) }}"><i class="fa fa-pencil"></i> Edit</a>
