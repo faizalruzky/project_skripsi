@@ -19,3 +19,4 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 Route::resource('surahs','SurahsController');
+Route::resource('tafsirs','TafsirsController');
