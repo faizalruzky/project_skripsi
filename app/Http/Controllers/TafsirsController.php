@@ -18,7 +18,7 @@ class TafsirsController extends Controller
     public function index()
     {
         $surahs = Surah::paginate(10);
-        return view('tafsirs.index')->with('surahs',$surahs);
+        return view('dashboard/tafsirs.index')->with('surahs',$surahs);
     }
 
     /**
@@ -28,7 +28,7 @@ class TafsirsController extends Controller
      */
     public function create()
     {
-        return view('tafsirs.create');
+        return view('dashboard/tafsirs.create');
     }
 
     /**
@@ -54,7 +54,7 @@ class TafsirsController extends Controller
     {
         $surah = Surah::findOrFail($id);
         $tafsirs = $surah->tafsirs()->paginate(15);
-        return view('tafsirs.show',compact('tafsirs','surah'));
+        return view('dashboard/tafsirs.show',compact('tafsirs','surah'));
     }
 
     /**
@@ -66,7 +66,7 @@ class TafsirsController extends Controller
     public function edit($id)
     {
         $tafsir = Tafsir::findOrFail($id);
-        return view('tafsirs.edit',compact('tafsir'));
+        return view('dashboard/tafsirs.edit',compact('tafsir'));
     }
 
     /**
