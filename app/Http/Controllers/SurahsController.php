@@ -21,7 +21,7 @@ class SurahsController extends Controller
     public function index()
     {
          $surahs = Surah::paginate(10);
-        return view('surahs.index')->with('surahs', $surahs);
+        return view('dashboard/surahs.index')->with('surahs', $surahs);
     }
 
     /**
@@ -31,7 +31,7 @@ class SurahsController extends Controller
      */
     public function create()
     {
-        return view('surahs.create');
+        return view('dashboard/surahs.create');
     }
 
     /**
@@ -58,7 +58,7 @@ class SurahsController extends Controller
        $surah = Surah::findOrFail($id);       
        $qurans = $surah->qurans()->paginate(15);
        //dd(get_class($qurans));
-        return view('surahs.show', compact('qurans','surah'));
+        return view('dashboard/surahs.show', compact('qurans','surah'));
     }
 
     /**
@@ -70,7 +70,7 @@ class SurahsController extends Controller
     public function edit($id)
     {
         $surah = Surah::findOrFail($id);
-        return view('surahs.edit', compact('surah'));
+        return view('dashboard/surahs.edit', compact('surah'));
     }
 
     /**
