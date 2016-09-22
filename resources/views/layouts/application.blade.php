@@ -47,7 +47,8 @@
 
 </head>
 <body class="nav-md">
-@yield('content')
+
+@include('dashboard/shared.side_nav')
 
 <!-- scripts -->
     <!-- bootstrap -->
@@ -129,6 +130,9 @@
       gauge.setTextField(document.getElementById("gauge-text"));
     </script>
     <!-- /gauge.js -->
-
+    <footer>
+           @include('dashboard/shared.footer')
+        </footer>
 </body>
+
 </html>
