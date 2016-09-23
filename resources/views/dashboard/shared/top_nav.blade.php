@@ -7,7 +7,7 @@
 
       <ul class="nav navbar-nav navbar-right">
       @if (Auth::guest())
-      <li><a href="{{ url('/login') }}">Login</a></li>
+      <li><a href="{{ url('administrator/login') }}">Login</a></li>
       @else
         <li class="">
           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -22,7 +22,7 @@
               </a>
             </li>
             <li><a href="javascript:;">Help</a></li>
-            <li><a href="{{url('/logout')}}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+            <li><a href="{{url('administrator/logout')}}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
           </ul>
         </li>
         @endif

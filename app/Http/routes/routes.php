@@ -15,11 +15,3 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
-Route::resource('surahs','SurahsController');
-Route::resource('tafsirs','TafsirsController');
-Route::get('/administrator',function(){
-	 return view('dashboard.welcome');
-});
