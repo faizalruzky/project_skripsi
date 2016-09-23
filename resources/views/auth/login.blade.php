@@ -1,53 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Login Admin</title>
-
-    <!-- fonts -->
-    <!-- awesome -->
-    <link href="/assets/fonts/font-awesome.min.css" rel="stylesheet">
-
-    <!-- materialize -->
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <!-- end fonts -->
-
-    <!-- styles -->
-    <!-- bootstrap -->
-    <link href="/assets/library/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- materialize -->
-    <!-- <link rel="stylesheet" type="text/css" href="/assets/library/materialize/css/materialize.min.css">  -->   
-
-    <!-- end styles -->
-
-    <!-- nprogress -->
-    <link href="/assets/library/nprogress/nprogress.css" rel="stylesheet">
-    <!-- end nprogress -->
-
-    <!-- iCheck -->
-    <link href="/assets/library/iCheck/skin/flat/green.css" rel="stylesheet">
-    <!-- end iCheck -->
-
-    <!-- progressbar -->
-    <link href="/assets/library/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.css" rel="stylesheet">
-    <!-- end progressbar -->
-
-    <!-- jqvmap -->
-    <link href="/assets/library/jqvmap/jqvmap.min.css" rel="stylesheet">
-    <!-- end jqvmap -->
-
-    <!-- custom -->
-    <link href="/assets/css/custom.min.css" rel="stylesheet">
-
-</head>
-
-<body class="login">
+@extends('layouts.applogin')
+@section('content')
 <div>
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
@@ -55,32 +7,53 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
-              <h1>Login Form</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+            <form class="form-horizontal" role="form" method="POST" action="{{ url('administrator/login') }}">
+            {{ csrf_field() }}
+              <h1>Login</h1>
+              <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email" />
+                @if ($errors->has('email'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('email') }}</strong>
+                </span>
+                @endif
               </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+              <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password" />
+                @if ($errors->has('password'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('password') }}</strong>
+                </span>
+                @endif
               </div>
-              <div>
-                <a class="btn btn-default submit" href="index.html">Log in</a>
-                <a class="reset_pass" href="#">Lost your password?</a>
+              <div class="form-group left">
+                <div class="col-md-12">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="remember"> Remember Me
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group left">
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-btn fa-sign-in"></i>Log in</button>
+                <a class="reset_pass" href="{{ url('administrator/password/reset') }}">Lost your password?</a>
+               </div>
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
+                
                 <p class="change_link">New to site?
                   <a href="#signup" class="to_register"> Create Account </a>
                 </p>
-
                 <div class="clearfix"></div>
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                  <p>©2016 Faizal Ruzky. Template by gentelella</p>
                 </div>
               </div>
             </form>
@@ -89,19 +62,48 @@
 
         <div id="register" class="animate form registration_form">
           <section class="login_content">
-            <form>
-              <h1>Create Account</h1>
+            <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+            {{ csrf_field() }}
+            <h1>Register</h1>
+            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name"/>
+                @if ($errors->has('name'))
+              <span class="help-block">
+                <strong>{{ $errors->first('name') }}</strong>
+              </span>
+              @endif
+              </div>
+              
+              <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+              <div>
+                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email"/>
+                @if ($errors->has('email'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('email') }}</strong>
+                </span>
+                @endif
+              </div>
+              <div lass="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password" />
+                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+              </div>
+              <div lass="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Comfirm Password" />
+                @if ($errors->has('password_confirmation'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('password_confirmation') }}</strong>
+                </span>
+                @endif
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="index.html">Submit</a>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fa fa-btn fa-user"></i> Register
+                </button>
               </div>
 
               <div class="clearfix"></div>
@@ -115,8 +117,7 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                  <p>©2016 Faizal Ruzky. Template by gentelella</p>
                 </div>
               </div>
             </form>
@@ -124,88 +125,4 @@
         </div>
       </div>
     </div>
-    </body>
-
-<!-- scripts -->
-    <!-- bootstrap -->
-    <script src="/assets/library/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- materialize -->
-   <!--  <script src="/assets/library/materialize/js/materialize.min.js"></script> -->
-
-    <!-- jquery -->
-    <script src="/assets/jquery/jquery.min.js"></script>
-    <!-- end jquery -->
-
-    <!-- fastclick -->
-    <script src="/assets/library/fastclick/fastclick.js"></script>
-    <!-- end fastclick -->
-
-    <!-- nprogress -->
-    <script src="/assets/library/nprogress/nprogress.js"></script>
-
-    <!-- gauge -->
-    <script src="/assets/library/gauge/gauge.min.js"></script>
-    <!-- end gauge -->
-
-    <!-- icheck -->
-    <script src="/assets/library/iCheck/icheck.min.js"></script>
-
-    <!-- skycons -->
-    <script src="/assets/library/skycons/skycons.js"></script>
-    <!-- end skycons -->
-
-    <!-- custom -->
-    <script src="../assets/js/custom.min.js"></script>
-    <!-- end scripts -->
-
-     <!-- Skycons -->
-    <script>
-      $(document).ready(function() {
-        var icons = new Skycons({
-            "color": "#73879C"
-          }),
-          list = [
-            "clear-day", "clear-night", "partly-cloudy-day",
-            "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
-            "fog"
-          ],
-          i;
-
-        for (i = list.length; i--;)
-          icons.set(list[i], list[i]);
-
-        icons.play();
-      });
-    </script>
-    <!-- /Skycons -->
-
-     <!-- gauge.js -->
-    <script>
-      var opts = {
-          lines: 12,
-          angle: 0,
-          lineWidth: 0.4,
-          pointer: {
-              length: 0.75,
-              strokeWidth: 0.042,
-              color: '#1D212A'
-          },
-          limitMax: 'false',
-          colorStart: '#1ABC9C',
-          colorStop: '#1ABC9C',
-          strokeColor: '#F0F3F3',
-          generateGradient: true
-      };
-      var target = document.getElementById('foo'),
-          gauge = new Gauge(target).setOptions(opts);
-
-      gauge.maxValue = 6000;
-      gauge.animationSpeed = 32;
-      gauge.set(3200);
-      gauge.setTextField(document.getElementById("gauge-text"));
-    </script>
-    <!-- /gauge.js -->
-
-
-</html>
+    @endsection
