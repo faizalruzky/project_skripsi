@@ -1,2 +1,2 @@
 <?php 
-Route::resource('surahs','SurahsController');
+Route::resource('administrator/surahs','SurahsController');
