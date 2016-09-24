@@ -11,7 +11,7 @@
             <!-- menu profile quick info -->
             <div class="profile">
               <div class="profile_pic">
-                <img src="assets/images/picture.jpg" alt="..." class="img-circle profile_img">
+                <img src="../../assets/images/picture.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -27,12 +27,12 @@
               <div class="menu_section">
                 <ul class="nav side-menu">
                 <h3>General</h3>
-                  <li><a href="#"><i class="fa fa-home"></i> Home</a>
+                  <li><a href="/administrator"><i class="fa fa-home"></i> Home</a>
                   </li>
                   <li><a><i class="fa fa-book"></i> Quran <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Surat</a></li>
-                      <li><a href="#">Tafsir</a></li>
+                      <li><a href="{{url('administrator/surahs')}}">Surat</a></li>
+                      <li><a href="{{url('administrator/tafsirs')}}">Tafsir</a></li>
                     </ul>
                   </li>
                   <li><a href="#"><i class="fa fa-edit"></i> Stoplist <span class="fa"></span></a>
