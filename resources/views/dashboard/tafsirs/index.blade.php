@@ -5,7 +5,7 @@
   <div class="row">
     <ol class="breadcrumb">
       <li><a href="{{ url('/administrator') }}">Dashboard</a></li>
-      <li><a href="{{ url('administrator/tafsirs') }}">Tafsirs</a></li>
+      <li>Tafsirs</li>
     </ol>
     <div class="panel panel-info">
       <div class="panel-heading">
