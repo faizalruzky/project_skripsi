@@ -10,6 +10,7 @@ use Validator;
 use App\Http\Requests;
 use App\Surah;
 use App\Quran;
+use Yajra\Datatables\Datatables;
 
 class SurahsController extends Controller
 {
