@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="right_col" role="main">
-  <div class="row">
+{!! Form::open(['url' => 'administrator/surahs']) !!}
     <h1>Create Surah</h1>
     <hr>
     <ol class="breadcrumb">
@@ -10,12 +10,10 @@
       <li><a href="{{ url('administrator/surahs') }}">Surahs</a></li>
       <li>Create</li>
     </ol>
-
-    {!! Form::open(['url' => 'administrator/surahs']) !!}
+    
+    
     @include('dashboard/surahs.form', ['submitText' => '<i class="fa fa-plus"></i> Create'])
     {!! Form::close() !!}
-
-    <!-- ================================================== -->
-  </div>
+   
 </div>
-@stop
+@endsection
