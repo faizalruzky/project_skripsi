@@ -1,4 +1,4 @@
-    	<div class="form-group" >
+    	<div class="form-group">
             {!! Form::label("nama_surat", "Nama Surat:") !!}
             {!! Form::text("nama_surat", null, ["class" => "form-control"]) !!}
 
