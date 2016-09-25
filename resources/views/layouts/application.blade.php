@@ -42,6 +42,10 @@
     <link href="/assets/library/jqvmap/jqvmap.min.css" rel="stylesheet">
     <!-- end jqvmap -->
 
+    <!-- datatables -->
+    <link href="/assets/library/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!-- end datatables -->
+
     <!-- custom -->
     <link href="/assets/css/custom.min.css" rel="stylesheet">
 
@@ -79,8 +83,10 @@
     <script src="/assets/library/skycons/skycons.js"></script>
     <!-- end skycons -->
 
+    <script src="/assets/library/datatables/js/jquery.dataTables.min.jss"></script>
+
     <!-- custom -->
-    <script src="../assets/js/custom.min.js"></script>
+    <script src="/assets/js/custom.min.js"></script>
     <!-- end scripts -->
 
      <!-- Skycons -->
@@ -130,9 +136,8 @@
       gauge.setTextField(document.getElementById("gauge-text"));
     </script>
     <!-- /gauge.js -->
-    <footer>
-           @include('dashboard/shared.footer')
-        </footer>
 </body>
-
+<footer>
+ @include('dashboard/shared.footer')
+</footer>
 </html>
