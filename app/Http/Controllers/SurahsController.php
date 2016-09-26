@@ -62,7 +62,7 @@ class SurahsController extends Controller
     {
         Surah::create($request->all());
         Session::flash('notice','Surah has been created successfully.');
-        return redirect('surahs');
+        return redirect('administrator/surahs');
     }
 
     /**
@@ -103,7 +103,7 @@ class SurahsController extends Controller
          $surah = Surah::findOrFail($id);
         $surah->update($request->all());
         Session::flash('notice','Surah has been updated successfully.');
-        return redirect('surahs');
+        return redirect('administrator/surahs');
     }
 
     /**
@@ -117,6 +117,6 @@ class SurahsController extends Controller
          $surah = Surah::findOrFail($id);
         $surah->delete();
         Session::flash('notice','Surah has been deleted successfully.');
-        return redirect('surahs');
+        return redirect('administrator/surahs');
     }
 }
