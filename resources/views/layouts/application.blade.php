@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="_token" content="{{ app('Illuminate\Encryption\Encrypter')->encrypt(csrf_token()) }}" />
 
     <title>Dashboard Admin</title>
 
@@ -83,10 +84,11 @@
     <script src="/assets/library/skycons/skycons.js"></script>
     <!-- end skycons -->
 
-    <script src="/assets/library/datatables/js/jquery.dataTables.min.jss"></script>
+    <script src="/assets/library/datatables/js/jquery.dataTables.min.js"></script>
 
     <!-- custom -->
     <script src="/assets/js/custom.min.js"></script>
+    <script src="/assets/js/custom.js"></script>
     <!-- end scripts -->
 
      <!-- Skycons -->
