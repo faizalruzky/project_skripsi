@@ -25,3 +25,4 @@
           </table>
           {!! $surahs->render() !!}
         </div>
+       <!--  <script src="/assets/js/custom.js"></script> -->
