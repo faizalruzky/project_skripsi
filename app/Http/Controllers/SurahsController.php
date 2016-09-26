@@ -10,7 +10,6 @@ use Validator;
 use App\Http\Requests;
 use App\Surah;
 use App\Quran;
-use Yajra\Datatables\Datatables;
 
 class SurahsController extends Controller
 {
@@ -19,10 +18,28 @@ class SurahsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-         $surahs = Surah::paginate(10);
-        return view('dashboard/surahs.index')->with('surahs', $surahs);
+    public function index(Request $request)
+    {   
+        if($request->ajax()){
+            if($request->keywords){
+                $surahs = Surah::where('id','like','%'.$request->keywords.'%')
+                ->orWhere('nama_surat','like','%'.$request->keywords.'%')
+                ->orWhere('arti_surat','like','%'.$request->keywords.'%')
+                ->paginate(10);
+            }else{
+                $surahs = Surah::orderBy('id',$request->direction)
+                ->paginate(10);
+            }
+            $request->direction=='asc' ? $direction='desc' : $direction = 'asc';
+            $view = (String)view('dashboard/surahs._list')
+            ->with('surahs',$surahs)
+            ->render();
+            return response()->json(['view' => $view,'direction' => $direction]);
+        }else{
+            $surahs = Surah::orderBy('id','asc')->paginate(10);
+            return view('dashboard/surahs.index')
+            ->with('surahs',$surahs);
+        }
     }
 
     /**
