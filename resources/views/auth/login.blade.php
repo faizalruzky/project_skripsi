@@ -66,7 +66,6 @@
             {{ csrf_field() }}
             <h1>Register</h1>
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-              <div>
                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name"/>
                 @if ($errors->has('name'))
               <span class="help-block">
@@ -76,7 +75,6 @@
               </div>
               
               <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-              <div>
                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email"/>
                 @if ($errors->has('email'))
                 <span class="help-block">
