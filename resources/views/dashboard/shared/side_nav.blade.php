@@ -11,7 +11,7 @@
         <!-- menu profile quick info -->
         <div class="profile">
           <div class="profile_pic">
-            <img src="../../assets/images/picture.jpg" alt="..." class="img-circle profile_img">
+            <img src="../../../../assets/images/picture.jpg" alt="..." class="img-circle profile_img">
           </div>
           <div class="profile_info">
             <span>Welcome,</span>
