@@ -93,90 +93,14 @@
     <!-- custom -->
     <script src="/assets/js/custom.min.js"></script>
     <script src="/assets/js/custom.js"></script>
-    <!-- end scripts -->
+    <script src="/assets/js/validator-custom.js"></script>
+    <script src="/assets/js/skycons-custom.js"></script>
+    <script src="/assets/js/gauge-custom.js"></script>
 
-     <!-- Skycons -->
-    <script>
-      $(document).ready(function() {
-        var icons = new Skycons({
-            "color": "#73879C"
-          }),
-          list = [
-            "clear-day", "clear-night", "partly-cloudy-day",
-            "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
-            "fog"
-          ],
-          i;
-
-        for (i = list.length; i--;)
-          icons.set(list[i], list[i]);
-
-        icons.play();
-      });
-    </script>
-    <!-- /Skycons -->
-
-     <!-- gauge.js -->
-    <script>
-      var opts = {
-          lines: 12,
-          angle: 0,
-          lineWidth: 0.4,
-          pointer: {
-              length: 0.75,
-              strokeWidth: 0.042,
-              color: '#1D212A'
-          },
-          limitMax: 'false',
-          colorStart: '#1ABC9C',
-          colorStop: '#1ABC9C',
-          strokeColor: '#F0F3F3',
-          generateGradient: true
-      };
-      var target = document.getElementById('foo'),
-          gauge = new Gauge(target).setOptions(opts);
-
-      gauge.maxValue = 6000;
-      gauge.animationSpeed = 32;
-      gauge.set(3200);
-      gauge.setTextField(document.getElementById("gauge-text"));
-    </script>
-    <!-- /gauge.js -->
-
-    <!-- validator -->
-    <script>
-      // initialize the validator function
-      validator.message.date = 'not a real date';
-
-      // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
-      $('form')
-        .on('blur', 'input[required], input.optional, select.required', validator.checkField)
-        .on('change', 'select.required', validator.checkField)
-        .on('keypress', 'input[required][pattern]', validator.keypress);
-
-      $('.multi.required').on('keyup blur', 'input', function() {
-        validator.checkField.apply($(this).siblings().last()[0]);
-      });
-
-      $('form').submit(function(e) {
-        e.preventDefault();
-        var submit = true;
-
-        // evaluate the form using generic validaing
-        if (!validator.checkAll($(this))) {
-          submit = false;
-        }
-
-        if (submit)
-          this.submit();
-
-        return false;
-      });
-    </script>
-    <!-- /validator -->
+    <!-- end scripts -->    
 
 </body>
 <footer>
- @include('dashboard/shared.footer')
+    @include('dashboard/shared.footer')
 </footer>
 </html>
