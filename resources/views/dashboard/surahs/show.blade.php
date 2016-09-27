@@ -5,7 +5,7 @@
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="{{ url('/administrator') }}">Dashboard</a></li>
-            <li><a href="{{ url('administrator/surahs') }}">Surahs</a></li>
+            <li><a href="{{ url('administrator/surahs') }}">Surat</a></li>
             <li>Show</li>
         </ol>
         <div class="panel panel-info">
