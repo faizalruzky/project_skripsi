@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Tafsir;
 use App\Surah;
+use Session;
+use Validator;
 
 class TafsirsController extends Controller
 {
@@ -41,7 +43,7 @@ class TafsirsController extends Controller
     {
         Tafsir::create($request->all());
         Session::flash('notice','Tafsir has been created succesfully');
-        return redirect('tafsirs');
+        return redirect('administrator/tafsirs');
     }
 
     /**
@@ -64,9 +66,11 @@ class TafsirsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        $tafsir = Tafsir::findOrFail($id);
-        return view('dashboard/tafsirs.edit',compact('tafsir'));
+    {   
+        $qurantafsir = Tafsir::findOrFail($id);
+        $surah = Surah::findOrFail($id);
+        $tafsirs = $surah->tafsirs()->paginate(15);
+        return view('dashboard/tafsirs.edit',compact('tafsirs','surah','qurantafsir'));
     }
 
     /**
@@ -81,7 +85,7 @@ class TafsirsController extends Controller
         $tafsir = Tafsir::findOrFail($id);
         $tafsir->update($request->all());
         Session::flash('notice', 'Tafsir has been updated succesfully.');
-        return redirect('tafsirs');
+        return redirect('administrator/tafsirs');
     }
 
     /**
@@ -95,6 +99,6 @@ class TafsirsController extends Controller
         $tafsir = Tafsir::findOrFail($id);
         $tafsir->delete();
         Session::flash('notice','Tafsir has been deleted succesfully.');
-        return redirect('tafsirs');
+        return redirect('administrator/tafsirs');
     }
 }
