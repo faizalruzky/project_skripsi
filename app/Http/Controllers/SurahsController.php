@@ -22,8 +22,7 @@ class SurahsController extends Controller
     {   
         if($request->ajax()){
             if($request->keywords){
-                $surahs = Surah::where('id','like','%'.$request->keywords.'%')
-                ->orWhere('nama_surat','like','%'.$request->keywords.'%')
+                $surahs = Surah::Where('id','like','%'.$request->keywords.'%')->orWhere('nama_surat','like','%'.$request->keywords.'%')
                 ->orWhere('arti_surat','like','%'.$request->keywords.'%')
                 ->paginate(10);
             }else{
@@ -31,7 +30,7 @@ class SurahsController extends Controller
                 ->paginate(10);
             }
             $request->direction=='asc' ? $direction='desc' : $direction = 'asc';
-            $view = (String)view('dashboard/surahs._list')
+            $view = (String)view('dashboard/surahs.list')
             ->with('surahs',$surahs)
             ->render();
             return response()->json(['view' => $view,'direction' => $direction]);
