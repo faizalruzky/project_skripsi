@@ -55,6 +55,7 @@ class RouteServiceProvider extends ServiceProvider
         $router->group([
             'namespace' => $this->namespace, 'middleware' => 'web',
         ], function ($router) {
+            require app_path('Http/routes/route-stemmer.php');
             require app_path('Http/routes/routes.php');
             require app_path('Http/routes/admin/route-admin.php');
             require app_path('Http/routes/admin/route-login.php');
