@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "sngrl/sphinxsearch": "dev-master",
         "laravelcollective/html": "5.2.*",
-        "yajra/laravel-datatables-oracle":"~6.0"
+        "yajra/laravel-datatables-oracle":"~6.0",
+        "sastrawi/sastrawi":"^1"
 
     },
     "require-dev": {
