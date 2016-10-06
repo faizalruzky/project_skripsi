@@ -5,11 +5,11 @@
 
 <div class="row">
 
-    <div class="col-md-8 col-md-offset-2">
+	<div class="col-md-8 col-md-offset-2">
 
-        <h1 class="text-primary" style="text-align: center;">stemming</h1>
+		<h1 class="text-primary" style="text-align: center;">stemming</h1>
 
-    </div>
+	</div>
 
 </div>
 
@@ -18,62 +18,68 @@
 
 	<div class="panel panel-primary">
 
-	  <div class="panel-heading">
+		<div class="panel-heading">
 
-	  	<div class="row">
+			<div class="row">
 
-		  <div class="col-lg-6 col-lg-offset-3">
+				<div class="col-lg-6 col-lg-offset-3">
 
-		     {!! Form::open(array('method'=>'get','class'=>'')) !!}
+					{!! Form::open(array('method'=>'get','class'=>'')) !!}
 
-		    <div class="input-group">
-
-
-		      <input name="search" value="{{ old('search') }}" type="text" class="form-control" placeholder="Search for...">
-
-		      <span class="input-group-btn">
-
-		        <input class="btn btn-default" type="submit" value="GO!">
-
-		      </span>
+					<div class="input-group">
 
 
-		    </div><!-- /input-group -->
+						<input name="search" value="{{ old('search') }}" type="text" class="form-control" placeholder="Search for...">
 
-		     {!! Form::close() !!}
+						<span class="input-group-btn">
 
-		  </div><!-- /.col-lg-6 -->
+							<!-- <button class="btn btn-default" type="submit"> GO!</button> -->
+							<input class="btn btn-default" type="submit" value="Go!"> 
 
-		</div><!-- /.row -->
-
-	  </div>
-
-	  <div class="panel-body">
+						</span>
 
 
-	    	
+					</div><!-- /input-group -->
 
-	    	<div class="row">
+					{!! Form::close() !!}
 
-		  		<div class="col-lg-6">
-		  		@if(!empty($output))
+				</div><!-- /.col-lg-6 -->
 
-			    	
-			    			<p>{{ $output }}</p>
+			</div><!-- /.row -->
 
-			    	
+		</div>
 
-			    	@endif
-
-		  		</div>
-
-		  	</div>
+		<div class="panel-body">
 
 
-	  </div>
 
-	</div>
 
-</div>
+			<div class="row">
 
-@endsection
+				<div class="col-lg-6">
+
+
+					@if(!empty($qurans))
+
+					@foreach($qurans as $key => $value)
+					<h3>Surat Ke {{ $value['surat_id'] }}</h3>
+					<h3 class="text-danger">Ayat {{ $value['ayat_id'] }}</h3>
+					<h3>{{ $value['text_quran'] }}</h3>
+					<p>{{ $value['terjemah'] }}</p>
+					<p>{{ $value['tafsir_id'] }}</p>
+
+					@endforeach
+					@endif
+				</div>
+
+			</div>
+			
+		
+			<div class="panel-body">
+
+
+			</div>
+
+		</div>
+
+		@endsection

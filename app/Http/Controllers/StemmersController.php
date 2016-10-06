@@ -10,6 +10,15 @@ use App\Word;
 
 class StemmerController extends Controller
 {
+	public function index(Request $request)
+	{
+		if($request->has('kata')){
+
+    		$output = $request->input('kata');
+
+    	}
+		return view('public/search.cari',compact('output'));
+	}
 	public function cekKamus($kata){
 //$sql = "SELECT * from tb_katadasar where katadasar ='$kata' LIMIT 1";
 		$sql = Word::Where('katadasar',$kata)->first();

@@ -70,7 +70,3 @@
       <!-- /top navigation -->
   </div>
 </div>
-<!-- jquery -->
-<script src="/assets/jquery/jquery.min.js"></script>
-<script src="/assets/js/ajax-custom.js"></script>
-<!-- end jquery -->
