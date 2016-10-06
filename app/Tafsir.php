@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use ElasticquentTrait;
 use App\Surah;
 
 class Tafsir extends Model
 {
+    use ElasticquentTrait;
     protected $fillable = ['surat_id','ayat_id','tafsir'];
     public static function valid(){
     	return array(
