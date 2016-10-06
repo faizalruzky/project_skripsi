@@ -36,6 +36,7 @@ class SurahsController extends Controller
             return response()->json(['view' => $view,'direction' => $direction]);
         }else{
             $surahs = Surah::orderBy('id','asc')->paginate(10);
+            $surahs->addToindex();
             return view('dashboard/surahs.index')
             ->with('surahs',$surahs);
         }
@@ -73,7 +74,8 @@ class SurahsController extends Controller
     public function show($id)
     {
        $surah = Surah::findOrFail($id);       
-       $qurans = $surah->qurans()->paginate(15);
+       $qurans = $surah->qurans()->paginate(10);
+       $qurans->addToindex();
        //dd(get_class($qurans));
         return view('dashboard/surahs.show', compact('qurans','surah'));
     }
@@ -101,6 +103,7 @@ class SurahsController extends Controller
     {
          $surah = Surah::findOrFail($id);
         $surah->update($request->all());
+        $surah->addToindex();
         Session::flash('notice','Surah has been updated successfully.');
         return redirect('administrator/surahs');
     }
