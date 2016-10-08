@@ -60,16 +60,18 @@
 
 
 					@if(!empty($qurans))
-
+					<p>Jumlah Dokumen: {{ $num_rows }}</p>
 					@foreach($qurans as $key => $value)
-					<h3>Surat Ke {{ $value['surat_id'] }}</h3>
+					<h3>Surat {{ $value['nama_surat'] }}</h3>
+					<p>Quran ID {{ $value['id'] }}</p>
 					<h3 class="text-danger">Ayat {{ $value['ayat_id'] }}</h3>
 					<h3>{{ $value['text_quran'] }}</h3>
 					<p>{{ $value['terjemah'] }}</p>
-					<p>{{ $value['tafsir_id'] }}</p>
-
-					@endforeach
+					<small>Tafsir</small>
+					<p>{{ $value['tafsir'] }}</p>
+					@endforeach						
 					@endif
+
 				</div>
 
 			</div>
