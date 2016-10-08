@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use ElasticquentTrait;
+use Elasticquent\ElasticquentTrait;
 use App\Surah;
 
 class Tafsir extends Model
