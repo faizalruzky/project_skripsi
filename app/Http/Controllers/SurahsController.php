@@ -103,7 +103,7 @@ class SurahsController extends Controller
     {
          $surah = Surah::findOrFail($id);
         $surah->update($request->all());
-        $surah->addToindex();
+        $surah->updateToindex();
         Session::flash('notice','Surah has been updated successfully.');
         return redirect('administrator/surahs');
     }
