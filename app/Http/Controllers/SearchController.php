@@ -9,7 +9,9 @@ use App\Http\Requests;
 use App\Word;
 use App\Quran;
 use App\Surah;
+use App\Tfidf;
 use DB;
+
 
 class SearchController extends Controller
 {
@@ -18,23 +20,20 @@ class SearchController extends Controller
     {
     	$stemmerFactory = new \Sastrawi\Stemmer\StemmerFactory();
 		$stemmer  = $stemmerFactory->createStemmer();
-		$dictionary = $stemmerFactory->createDefaultDictionary();
-		// $db = new Word();
-		// foreach ($db->query('SELECT katadasar FROM words') as $word) {
-		// 	$dictionary->add($word);
-		// }
-    
-    	$stemmer = new \Sastrawi\Stemmer\Stemmer($dictionary);
+        $dictionary = $stemmerFactory->createDefaultDictionary();
+        foreach ($db = Word::Where('id') as $kata) {
+            $dictionary->add($kata);
+        }
+       $stemmer = new \Sastrawi\Stemmer\Stemmer($dictionary);
+        // var_dump($output = $stemmer->stem('internetan')); 
     	if($request->has('search')){
 
     		$output = $stemmer->stem($request->input('search'));
-            // $surah = $request->id;
-            // $surah = Surah::Where('id');      
     		$qurans = Quran::search($output)->toArray();
+             $num_rows = count($qurans);            
 
     	}
-
-    	return view('public/search.index',compact('qurans','output'));
+    	return view('public/search.index',compact('qurans','num_rows'));
     	// return view('public/search.index')->with('qurans',$qurans);
      //    ->with('surah',$surah);
     }
@@ -50,5 +49,46 @@ class SearchController extends Controller
     	$db->katadasar=$request->katadasar;
     	$db->save();
     	
+    }
+    public function hitung(Request $request) 
+    {
+        $stemmerFactory = new \Sastrawi\Stemmer\StemmerFactory();
+        $stemmer  = $stemmerFactory->createStemmer();
+        $dictionary = $stemmerFactory->createDefaultDictionary();
+
+        $stemmer = new \Sastrawi\Stemmer\Stemmer($dictionary);
+        // var_dump($output = $stemmer->stem('internetan'));
+        $tfidf = Tfidf::all();
+         $tfidf->addToIndex(); 
+          $n = Tfidf::count('quran_id');
+        if($request->has('search')){
+
+            $output = $stemmer->stem($request->input('search'));
+            
+              
+            $freq = Tfidf::search($output)->toArray();
+            $num_rows = count($freq); 
+         
+         
+
+           
+            // while($resBobot) {
+            // //$w = tf * log (n/N)
+            //     $term = $freq;
+            //     $tf = new Tfidf();      
+            //     $tf = $resBobot['idf'];
+            //     $id = $resBobot['id'];
+
+            // //berapa jumlah dokumen yang mengandung term tersebut?, N
+            //     $rowNTerm = DB::table('tfidfs')->select('idf')->where('term', '=', $term)->get();
+            //     $NTerm = $rowNTerm->idf;
+            //     $w = $tf * log($n/$NTerm);
+            //     $resUpdateBobot = Tfidf::where('id','=','$id');
+            //     $resUpdateBobot->update();  
+            // }
+            // $resBobot->toArray();
+        }
+        
+        return view('public/tfidf.index',compact('freq','n','resBobot','num_rows','w','tfidf'));
     }
 }
