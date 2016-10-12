@@ -11,15 +11,36 @@ use Validator;
 
 class TafsirsController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    } 
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $surahs = Surah::paginate(10);
-        return view('dashboard/tafsirs.index')->with('surahs',$surahs);
+        if($request->ajax()){
+            if($request->keywords){
+                $surahs = Surah::Where('id','like','%'.$request->keywords.'%')->orWhere('nama_surat','like','%'.$request->keywords.'%')
+                ->orWhere('arti_surat','like','%'.$request->keywords.'%')
+                ->paginate(10);
+            }else{
+                $surahs = Surah::orderBy('id',$request->direction)
+                ->paginate(10);
+            }
+            $request->direction=='asc' ? $direction='desc' : $direction = 'asc';
+            $view = (String)view('dashboard/surahs.list')
+            ->with('surahs',$surahs)
+            ->render();
+            return response()->json(['view' => $view,'direction' => $direction]);
+        }else{
+            $surahs = Surah::orderBy('id','asc')->paginate(10);
+            $surahs->addToindex();
+            return view('dashboard/tafsirs.index')
+            ->with('surahs',$surahs);
+        }
     }
 
     /**
