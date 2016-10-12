@@ -15,6 +15,7 @@
           <img src="../assets/images/quran_logo.png" class="img-responsive center-block" alt="Responsive image" width=50% height="auto">
         </div>
         <!-- /page content --> 
+        <script src="/assets/jquery/jquery.min.js"></script>
 @endsection
 
 
