@@ -1,4 +1,4 @@
 <?php 
-Route::get('administrator/words/create','SearchController@create');
+Route::resource('administrator/words','WordsController');
 Route::post('/','SearchController@index');
 Route::resource('/stemmer','StemmerController');
