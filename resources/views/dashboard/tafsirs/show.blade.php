@@ -41,4 +41,5 @@
         </div>
     </div>
 </div>
+<script src="/assets/jquery/jquery.min.js"></script>
 @endsection
