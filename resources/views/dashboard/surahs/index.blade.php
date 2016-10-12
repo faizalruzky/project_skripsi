@@ -4,21 +4,21 @@
 <div class="right_col" role="main">
   <div class="row">
     <div class="page-title">
-        <div class="title_left">
-          <h3>Surat</h3>
-        </div>
+      <div class="title_left">
+        <h3>Surat</h3>
+      </div>
 
-        <div class="title_right">
-          <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-            <div class="input-group">
-              <input class="form-control input-sm" type="search" id="keywords" placeholder="Cari..."/>
-              <span class="input-group-btn">
-                <button id="search" class="btn btn-default" type="button">Go!</button>
-              </span>
-            </div>
+      <div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+          <div class="input-group">
+            <input class="form-control" type="search" id="keywords" placeholder="Cari..."/>
+            <span class="input-group-btn">
+              <button id="search" class="btn btn-default" type="button">Go!</button>
+            </span>
           </div>
         </div>
       </div>
+    </div>
     <ol class="breadcrumb">
       <li><a href="{{ url('/administrator') }}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
       @if ( Request::input('q') )
@@ -44,14 +44,16 @@
           </a>
         </div>
         <div class="panel-body">
-         <div id="surahs-list"> 
-        @include('dashboard/surahs.list')
-         </div>
+          <div id="surahs-list"> 
+            @include('dashboard/surahs.list')
+          </div>
         </div>
       </div>
 
       <!-- ================================================== -->
     </div>
   </div>
-  @endsection
-  
+</div>
+<script src="/assets/jquery/jquery.min.js"></script>
+<script src="/assets/js/ajax-custom.js"></script>
+@endsection
