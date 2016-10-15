@@ -23,23 +23,23 @@ class TafsirsController extends Controller
     {
         if($request->ajax()){
             if($request->keywords){
-                $surahs = Surah::Where('id','like','%'.$request->keywords.'%')->orWhere('nama_surat','like','%'.$request->keywords.'%')
+                $tafsirs = Surah::Where('id','like','%'.$request->keywords.'%')->orWhere('nama_surat','like','%'.$request->keywords.'%')
                 ->orWhere('arti_surat','like','%'.$request->keywords.'%')
-                ->paginate(10);
+                ->paginate(100);
             }else{
-                $surahs = Surah::orderBy('id',$request->direction)
+                $tafsirs = Surah::orderBy('id',$request->direction=='asc' ? $direction='desc' : $direction = 'asc')
                 ->paginate(10);
             }
             $request->direction=='asc' ? $direction='desc' : $direction = 'asc';
-            $view = (String)view('dashboard/surahs.list')
-            ->with('surahs',$surahs)
+            $view = (String)view('dashboard/tafsirs.list')
+            ->with('tafsirs',$tafsirs)
             ->render();
             return response()->json(['view' => $view,'direction' => $direction]);
         }else{
-            $surahs = Surah::orderBy('id','asc')->paginate(10);
-            $surahs->addToindex();
+            $tafsirs = Surah::orderBy('id','asc')->paginate(10);
+            $tafsirs->addToindex();
             return view('dashboard/tafsirs.index')
-            ->with('surahs',$surahs);
+            ->with('tafsirs',$tafsirs);
         }
     }
 
@@ -116,7 +116,7 @@ class TafsirsController extends Controller
      */
     public function destroy($id)
     {
-        $tafsir = Tafsir::findOrFail($id);
+        $tafsir = Surah::findOrFail($id);
         $tafsir->delete();
         Session::flash('notice','Tafsir has been deleted succesfully.');
         return redirect('administrator/tafsirs');

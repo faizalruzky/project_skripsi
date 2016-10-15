@@ -13,7 +13,7 @@
           <div class="input-group">
             <input id="keywords" type="search" class="form-control" placeholder="Cari...">
             <span class="input-group-btn">
-              <button id="search" class="btn btn-default" type="button">Go!</button>
+              <button id="searchsurahtafsir" class="btn btn-default" type="button">Go!</button>
             </span>
           </div>
         </div>
@@ -23,7 +23,7 @@
       <li><a href="{{ url('/administrator') }}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
       @if ( Request::input('q') )
       {{-- */$query_params =  Request::input('q')/* --}}
-      <li class="active"><a href="{{url('administrator/surahs')}}">Surat</a></li>
+      <li class="active"><a href="{{url('administrator/tafsirs')}}">Tafsir</a></li>
       <li class="active">condition(  
 
         {{-- */ $loop = 0 /* --}}
@@ -41,7 +41,7 @@
           <h3 class="visible-lg-inline visible-md-inline">Tafsir</h3>
         </div>
         <div class="panel-body">
-          <div id="surahs-list"> 
+          <div id="tafsirsurahs-list"> 
             @include('dashboard/tafsirs.list')
           </div>
         </div>
@@ -51,5 +51,5 @@
   </div>
 </div>
 <script src="/assets/jquery/jquery.min.js"></script>
-<script src="/assets/js/ajax-custom.js"></script>
+<script src="/assets/js/ajax-customtafsir.js"></script>
 @endsection

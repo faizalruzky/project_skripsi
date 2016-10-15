@@ -31,7 +31,7 @@
 						<div class="clearfix"></div>
 					</div>
 					<div class="x_content">
-						{!! Form::open(['method'=>'POST','url' => '', 'class' => 'form-horizontal form-label-left','role' => 'form', 'enctype'=>"multipart/form-data" ]) !!}         
+						{!! Form::open(['method'=>'POST','url' => 'administrator/words', 'class' => 'form-horizontal form-label-left','role' => 'form', 'enctype'=>"multipart/form-data" ]) !!}         
 						@include('dashboard/words.form')
 						{!! Form::close() !!}
 					</div>

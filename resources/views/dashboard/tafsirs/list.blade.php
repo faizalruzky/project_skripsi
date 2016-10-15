@@ -1,22 +1,22 @@
-@if (count($surahs))
+@if (count($tafsirs))
 <div class="table-responsive">
               <table class="table table-bordered table-striped table-hover">                
                 <tr>
                   <th class="text-center"><a href="" id="id">No Surat<i id="ic-direction"></i></a></th>
-                  <th>Nama Surat</th>          
-                  <th>Option</th>
+                  <th class="text-center">Nama Surat</th>          
+                  <th class="text-center">Option</th>
                 </tr>
                 {{-- */$x=0;/* --}}
-                @foreach ($surahs as $surah)
+                @foreach ($tafsirs as $tafsir)
                 {{-- */$x++;/* --}}
                 <tr>
-                  <td>{{ $surah->id }}</td>
-                  <td><a href="{{ url('administrator/tafsirs',$surah->id) }}">{{ $surah->nama_surat }} <h4>{{ $surah->arab_surat }}</h4> {{ $surah->arti_surat }}</a></td>
+                  <td class="text-center">{{ $tafsir->id }}</td>
+                  <td><a href="{{ url('administrator/tafsirs',$tafsir->id) }}">{{ $tafsir->nama_surat }} <h4>{{ $tafsir->arab_surat }}</h4> {{ $tafsir->arti_surat }}</a></td>
                   <div>
-                    <td>
-                      <a class="btn btn-info" href="{{ action('TafsirsController@edit', $surah->id) }}"><i class="fa fa-pencil"></i> Edit</a>
+                    <td class="text-center">
+                      <a class="btn btn-info" href="{{ action('TafsirsController@edit', $tafsir->id) }}"><i class="fa fa-pencil"></i> Edit</a>
 
-                      {!! Form::open(['action' => ['SurahsController@destroy', $surah->id], 'method' => 'DELETE','style' => 'display:inline']) !!}
+                      {!! Form::open(['action' => ['TafsirsController@destroy', $tafsir->id], 'method' => 'DELETE','style' => 'display:inline']) !!}
                       <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
                       {!! Form::close() !!}
                     </td>
@@ -24,7 +24,7 @@
                 </tr>
                 @endforeach
               </table>
-              {!! $surahs->render() !!}
+              {!! $tafsirs->render() !!}
             <input id="direction" type="hidden" value="asc" />
 
             </div>

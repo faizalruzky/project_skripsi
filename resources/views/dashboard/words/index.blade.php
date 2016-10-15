@@ -38,6 +38,7 @@
 									<tr>
 										<th class="text-center"><strong>No</strong></th> 
 										<th class="text-center"><strong>Kata Dasar</strong></th>
+										<th class="text-center"><strong>Otions</strong></th>
 									</tr>
 									@foreach($words as $word)
 									<tr>
@@ -47,6 +48,15 @@
 										<td class="text-center">
 											{{ $word->katadasar }}
 										</td>
+										<div>
+											<td class="text-center">
+												<a class="btn btn-info" href="{{ action('WordsController@edit', $word->id) }}"><i class="fa fa-pencil"></i> Edit</a>
+
+												{!! Form::open(['action' => ['WordsController@destroy', $word->id], 'method' => 'DELETE','style' => 'display:inline']) !!}
+												<button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
+												{!! Form::close() !!}
+											</td>
+										</div>
 									</tr>
 									@endforeach
 								</table>

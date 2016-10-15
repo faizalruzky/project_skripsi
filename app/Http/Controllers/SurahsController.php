@@ -27,9 +27,9 @@ class SurahsController extends Controller
             if($request->keywords){
                 $surahs = Surah::Where('id','like','%'.$request->keywords.'%')->orWhere('nama_surat','like','%'.$request->keywords.'%')
                 ->orWhere('arti_surat','like','%'.$request->keywords.'%')
-                ->paginate(10);
+                ->paginate(100);
             }else{
-                $surahs = Surah::orderBy('id',$request->direction)
+                $surahs = Surah::orderBy('id',$request->direction=='asc' ? $direction='desc' : $direction = 'asc')
                 ->paginate(10);
             }
             $request->direction=='asc' ? $direction='desc' : $direction = 'asc';
@@ -106,7 +106,6 @@ class SurahsController extends Controller
     {
          $surah = Surah::findOrFail($id);
         $surah->update($request->all());
-        $surah->updateToindex();
         Session::flash('notice','Surah has been updated successfully.');
         return redirect('administrator/surahs');
     }
