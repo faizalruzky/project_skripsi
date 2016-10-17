@@ -90,7 +90,7 @@ $(document).ready(function() {
 
   $(document).on('click', '#id', function(e) {
 
-    sort_articles();
+    sort_surahs();
 
     e.preventDefault();
 
@@ -98,7 +98,7 @@ $(document).ready(function() {
 
 });
 
-function sort_articles() {
+function sort_surahs() {
 
   $('#id').on('click', function() {
     var url = 
