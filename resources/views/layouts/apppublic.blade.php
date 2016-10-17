@@ -27,33 +27,24 @@
 
     <!-- end styles -->
 
-    <!-- nprogress -->
-    <link href="/assets/library/nprogress/nprogress.css" rel="stylesheet">
-    <!-- end nprogress -->
-
-    <!-- iCheck -->
-    <link href="/assets/library/iCheck/skin/flat/green.css" rel="stylesheet">
-    <!-- end iCheck -->
-
-    <!-- progressbar -->
-    <link href="/assets/library/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.css" rel="stylesheet">
-    <!-- end progressbar -->
-
-    <!-- jqvmap -->
-    <link href="/assets/library/jqvmap/jqvmap.min.css" rel="stylesheet">
-    <!-- end jqvmap -->
-
-    <!-- datatables -->
-    <link href="/assets/library/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-    <!-- end datatables -->
+    <!--  -->
 
     <!-- custom -->
     <link href="/assets/css/custom.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato';
+        }
 
+        .fa-btn {
+            margin-right: 6px;
+        }
+    </style>
 </head>
-<body style="background:white">
+<body id="app-layout" style="background:white">
 
-@yield("content")
+@include('public/shared.top_nav')
+    @yield('content')
 
 <!-- scripts -->
     <!-- bootstrap -->
@@ -65,26 +56,6 @@
     <!-- jquery -->
     <script src="/assets/jquery/jquery.min.js"></script>
     <!-- end jquery -->
-
-    <!-- fastclick -->
-    <script src="/assets/library/fastclick/fastclick.js"></script>
-    <!-- end fastclick -->
-
-    <!-- nprogress -->
-    <script src="/assets/library/nprogress/nprogress.js"></script>
-
-    <!-- gauge -->
-    <script src="/assets/library/gauge/gauge.min.js"></script>
-    <!-- end gauge -->
-
-    <!-- icheck -->
-    <script src="/assets/library/iCheck/icheck.min.js"></script>
-
-    <!-- skycons -->
-    <script src="/assets/library/skycons/skycons.js"></script>
-    <!-- end skycons -->
-
-    <script src="/assets/library/datatables/js/jquery.dataTables.min.js"></script>
 
     <!-- validator -->
     <script src="/assets/library/validator/validator.js"></script>
