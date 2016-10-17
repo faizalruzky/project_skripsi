@@ -7,7 +7,7 @@
 
 	<div class="col-md-8 col-md-offset-2">
 
-		<h1 class="text-primary" style="text-align: center;">stemming</h1>
+		<h1 class="text-primary" style="text-align: center;">Pencarian Ayat</h1>
 
 	</div>
 
