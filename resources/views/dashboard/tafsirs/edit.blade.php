@@ -32,7 +32,7 @@
               <tr>
                 <td>{{ $tafsir->ayat_id }}</td>
                 <td>
-                  {!! Form::model($tafsir, ['method' => 'PATCH', 'action' => ['TafsirsController@update', $tafsir->id]]) !!}
+                  {!! Form::model($tafsir, ['method' => 'PATCH', 'action' => ['Admin\TafsirsController@update', $tafsir->id]]) !!}
                   {!! Form::textarea('tafsir',null,array('class'=>'span12 form-control','placeholder'=>'update tafsir disini','rows'=>'5','value'=>'{{ $tafsir->tafsir }}'))!!}
                   
                 </td>
@@ -40,7 +40,7 @@
                   <td>
                     {!! Form::submit('Save', array('class' => 'btn btn-primary')) !!}
                     {!! Form::close() !!}
-                    {!! Form::open(['action' => ['SurahsController@destroy', $tafsir->id], 'method' => 'DELETE']) !!}
+                    {!! Form::open(['action' => ['Admin\SurahsController@destroy', $tafsir->id], 'method' => 'DELETE']) !!}
                     <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
                     {!! Form::close() !!}
                   </td>

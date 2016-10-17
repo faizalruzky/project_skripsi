@@ -1,3 +1,3 @@
 <?php 
 Route::auth();
-Route::get('/administrator', 'HomeController@index');
+Route::get('/administrator', 'Admin\HomeController@index');

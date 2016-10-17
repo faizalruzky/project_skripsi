@@ -15,9 +15,9 @@
         <td><a href="{{ url('administrator/surahs',$surah->id) }}">{{ $surah->nama_surat }} <h4>{{ $surah->arab_surat }}</h4> {{ $surah->arti_surat }}</a></td>
         <div>
           <td>
-            <a class="btn btn-info" href="{{ action('SurahsController@edit', $surah->id) }}"><i class="fa fa-pencil"></i> Edit</a>
+            <a class="btn btn-info" href="{{ action('Admin\SurahsController@edit', $surah->id) }}"><i class="fa fa-pencil"></i> Edit</a>
 
-            {!! Form::open(['action' => ['SurahsController@destroy', $surah->id], 'method' => 'DELETE','style' => 'display:inline']) !!}
+            {!! Form::open(['action' => ['Admin\SurahsController@destroy', $surah->id], 'method' => 'DELETE','style' => 'display:inline']) !!}
             <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
             {!! Form::close() !!}
           </td>

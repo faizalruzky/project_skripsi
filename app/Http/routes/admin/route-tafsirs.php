@@ -1,2 +1,2 @@
 <?php 
-Route::resource('administrator/tafsirs','TafsirsController');
+Route::resource('administrator/tafsirs','Admin\TafsirsController');

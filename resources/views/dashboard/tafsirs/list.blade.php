@@ -14,9 +14,9 @@
                   <td><a href="{{ url('administrator/tafsirs',$tafsir->id) }}">{{ $tafsir->nama_surat }} <h4>{{ $tafsir->arab_surat }}</h4> {{ $tafsir->arti_surat }}</a></td>
                   <div>
                     <td class="text-center">
-                      <a class="btn btn-info" href="{{ action('TafsirsController@edit', $tafsir->id) }}"><i class="fa fa-pencil"></i> Edit</a>
+                      <a class="btn btn-info" href="{{ action('Admin\TafsirsController@edit', $tafsir->id) }}"><i class="fa fa-pencil"></i> Edit</a>
 
-                      {!! Form::open(['action' => ['TafsirsController@destroy', $tafsir->id], 'method' => 'DELETE','style' => 'display:inline']) !!}
+                      {!! Form::open(['action' => ['Admin\TafsirsController@destroy', $tafsir->id], 'method' => 'DELETE','style' => 'display:inline']) !!}
                       <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
                       {!! Form::close() !!}
                     </td>

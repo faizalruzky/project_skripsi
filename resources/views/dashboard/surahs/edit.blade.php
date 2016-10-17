@@ -31,7 +31,7 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content">  
-              {!! Form::model($surah, ['method' => 'PATCH','class' => 'form-horizontal form-label-left','role' => 'form', 'enctype'=>"multipart/form-data", 'action' => ['SurahsController@update', $surah->id]]) !!}    
+              {!! Form::model($surah, ['method' => 'PATCH','class' => 'form-horizontal form-label-left','role' => 'form', 'enctype'=>"multipart/form-data", 'action' => ['Admin\SurahsController@update', $surah->id]]) !!}    
               @include('dashboard/surahs.form')
               {!! Form::close() !!}
           </div>
