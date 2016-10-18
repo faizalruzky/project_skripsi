@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+ <span class="pull-right" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
  <h2>Surat</h2>
   <div class="row">
 
@@ -11,7 +11,7 @@
       @if ($surah->id==0)
       @continue
       @endif
-      <table style="border-color:white" class="table table-responsive table-hover"> 
+      <table style="border: 0px solid transparent" class="table table-responsive table-hover"> 
         <td>
           <div class="list-group">
             <a href="{{ url('administrator/surahs',$surah->id) }}">
