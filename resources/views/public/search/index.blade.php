@@ -1,16 +1,16 @@
 @extends('layouts.app')
-
-
 @section('content')
+<div class="container">
+	<span class="pull-right" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+	<div class="row">
 
-<div class="row">
+		<div class="col-md-8 col-md-offset-2">
 
-	<div class="col-md-8 col-md-offset-2">
+			<h1 class="text-primary" style="text-align: center;">Pencarian Ayat</h1>
 
-		<h1 class="text-primary" style="text-align: center;">Pencarian Ayat</h1>
+		</div>
 
 	</div>
-
 </div>
 
 
@@ -51,13 +51,9 @@
 
 		<div class="panel-body">
 
-
-
-
 			<div class="row">
 
 				<div class="col-lg-6">
-
 
 					@if(!empty($qurans))
 					<p>Jumlah Dokumen: {{ $num_rows }}</p>
@@ -75,13 +71,15 @@
 				</div>
 
 			</div>
-			
-		
-			<div class="panel-body">
 
+			<div class="panel-body">
 
 			</div>
 
 		</div>
 
-		@endsection
+	</div>
+
+</div>
+
+@endsection
