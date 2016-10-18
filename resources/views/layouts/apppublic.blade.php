@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="_token" content="{{ app('Illuminate\Encryption\Encrypter')->encrypt(csrf_token()) }}" />
 
-    <title>Al Quran - Indonesia v.1 Beta</title>
+    <title> Quran </title>
 
     <!-- fonts -->
     <!-- awesome -->
@@ -27,24 +27,35 @@
 
     <!-- end styles -->
 
-    <!--  -->
+    <!-- nprogress -->
+    <link href="/assets/library/nprogress/nprogress.css" rel="stylesheet">
+    <!-- end nprogress -->
+
+    <!-- iCheck -->
+    <link href="/assets/library/iCheck/skin/flat/green.css" rel="stylesheet">
+    <!-- end iCheck -->
+
+    <!-- progressbar -->
+    <link href="/assets/library/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.css" rel="stylesheet">
+    <!-- end progressbar -->
+
+    <!-- jqvmap -->
+    <link href="/assets/library/jqvmap/jqvmap.min.css" rel="stylesheet">
+    <!-- end jqvmap -->
+
+    <!-- datatables -->
+    <link href="/assets/library/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!-- end datatables -->
 
     <!-- custom -->
-    <link href="/assets/css/custom.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Lato';
-        }
+     <link href="/assets/css/sidenav-custom.css" rel="stylesheet">
+    <link href="/assets/css/side_navsurahs-custom.min.css" rel="stylesheet">
+    
 
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>
 </head>
-<body id="app-layout" style="background:white">
+<body class="nav-md">
 
-@include('public/shared.top_nav')
-    @yield('content')
+@include('public/shared.side_navsurahs')
 
 <!-- scripts -->
     <!-- bootstrap -->
@@ -57,12 +68,36 @@
     <script src="/assets/jquery/jquery.min.js"></script>
     <!-- end jquery -->
 
+    <!-- fastclick -->
+    <script src="/assets/library/fastclick/fastclick.js"></script>
+    <!-- end fastclick -->
+
+    <!-- nprogress -->
+    <script src="/assets/library/nprogress/nprogress.js"></script>
+
+    <!-- gauge -->
+    <script src="/assets/library/gauge/gauge.min.js"></script>
+    <!-- end gauge -->
+
+    <!-- icheck -->
+    <script src="/assets/library/iCheck/icheck.min.js"></script>
+
+    <!-- skycons -->
+    <script src="/assets/library/skycons/skycons.js"></script>
+    <!-- end skycons -->
+
+    <script src="/assets/library/datatables/js/jquery.dataTables.min.js"></script>
+
     <!-- validator -->
     <script src="/assets/library/validator/validator.js"></script>
     <!-- end -->
 
     <!-- custom -->
+      <script src="/assets/js/sidenav-custom.js"></script>
+
     <script src="/assets/js/custom.min.js"></script>
+    <script src="/assets/js/ajax-custom.js"></script>
+    <script src="/assets/js/ajax-customtafsir.js"></script>
     <script src="/assets/js/validator-custom.js"></script>
     <script src="/assets/js/skycons-custom.js"></script>
     <script src="/assets/js/gauge-custom.js"></script>
