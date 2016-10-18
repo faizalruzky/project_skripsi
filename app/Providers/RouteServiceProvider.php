@@ -55,10 +55,9 @@ class RouteServiceProvider extends ServiceProvider
         $router->group([
             'namespace' => $this->namespace, 'middleware' => 'web',
         ], function ($router) {
-            require app_path('Http/routes/route-stemmer.php');
-            require app_path('Http/routes/route-tfidf.php');
+            require app_path('Http/routes/route-search.php');
             require app_path('Http/routes/route-surahs.php');
-            require app_path('Http/routes/routes.php');
+            require app_path('Http/routes/route-tafsirs.php');
             require app_path('Http/routes/admin/route-admin.php');
             require app_path('Http/routes/admin/route-login.php');
             require app_path('Http/routes/admin/route-logout.php');
@@ -66,6 +65,7 @@ class RouteServiceProvider extends ServiceProvider
             require app_path('Http/routes/admin/route-surahs.php');
             require app_path('Http/routes/admin/route-tafsirs.php');
             require app_path('Http/routes/admin/route-words.php');
+            require app_path('Http/routes/admin/route-tfidf.php');
         });
 
     }
