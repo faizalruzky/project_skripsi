@@ -36,27 +36,25 @@ class TfidfsController extends Controller
               
             $freq = Tfidf::search($output)->toArray();
             $num_rows = count($freq); 
-         
-         
-
-           
-            // while($resBobot) {
-            // //$w = tf * log (n/N)
-            //     $term = $freq;
-            //     $tf = new Tfidf();      
-            //     $tf = $resBobot['idf'];
-            //     $id = $resBobot['id'];
-
-            // //berapa jumlah dokumen yang mengandung term tersebut?, N
-            //     $rowNTerm = DB::table('tfidfs')->select('idf')->where('term', '=', $term)->get();
-            //     $NTerm = $rowNTerm->idf;
-            //     $w = $tf * log($n/$NTerm);
-            //     $resUpdateBobot = Tfidf::where('id','=','$id');
-            //     $resUpdateBobot->update();  
-            // }
-            // $resBobot->toArray();
         }
         
-        return view('public/tfidf.index',compact('freq','n','resBobot','num_rows','w','tfidf'));
+        return view('dashboard/tfidfs.index',compact('freq','n','resBobot','num_rows','w','tfidf'));
+    }
+    public function similarity (){
+        while($resBobot) {
+            //$w = tf * log (n/N)
+                $term = $freq;
+                $tf = new Tfidf();      
+                $tf = $resBobot['idf'];
+                $id = $resBobot['id'];
+
+            //berapa jumlah dokumen yang mengandung term tersebut?, N
+                $rowNTerm = DB::table('tfidfs')->select('idf')->where('term', '=', $term)->get();
+                $NTerm = $rowNTerm->idf;
+                $w = $tf * log($n/$NTerm);
+                $resUpdateBobot = Tfidf::where('id','=','$id');
+                $resUpdateBobot->update();  
+            }
+            $resBobot->toArray();
     }
 }
