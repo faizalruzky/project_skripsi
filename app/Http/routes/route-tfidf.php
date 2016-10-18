@@ -1,2 +1,2 @@
 <?php 
-Route::get('administrator/tfidf','TfidfsController@hitung');
+Route::get('administrator/tfidf','Admin\TfidfsController@hitung');
