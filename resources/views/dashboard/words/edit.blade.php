@@ -31,7 +31,7 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content">  
-              {!! Form::model($word, ['method' => 'PATCH','class' => 'form-horizontal form-label-left','role' => 'form', 'enctype'=>"multipart/form-data", 'action' => ['WordsController@update', $word->id]]) !!}    
+              {!! Form::model($word, ['method' => 'PATCH','class' => 'form-horizontal form-label-left','role' => 'form', 'enctype'=>"multipart/form-data", 'action' => ['Admin\WordsController@update', $word->id]]) !!}    
               @include('dashboard/words.form')
               {!! Form::close() !!}
           </div>
