@@ -37,7 +37,7 @@
               </li>
               <li><a href="{{url('administrator/words')}}"><i class="fa fa-pencil"></i> Kata dasar <span class="fa"></span></a>
               </li>
-              <li><a href="{{url('administrator/tfidf')}}"><i class="fa fa-bar-chart-o"></i> Tfidf <span class="fa"></span></a>
+              <li><a href="{{url('administrator/tfidfs')}}"><i class="fa fa-bar-chart-o"></i> Tfidf <span class="fa"></span></a>
               </li>
             </ul>
           </div>
