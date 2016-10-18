@@ -50,9 +50,9 @@
 										</td>
 										<div>
 											<td class="text-center">
-												<a class="btn btn-info" href="{{ action('WordsController@edit', $word->id) }}"><i class="fa fa-pencil"></i> Edit</a>
+												<a class="btn btn-info" href="{{ action('Admin\WordsController@edit', $word->id) }}"><i class="fa fa-pencil"></i> Edit</a>
 
-												{!! Form::open(['action' => ['WordsController@destroy', $word->id], 'method' => 'DELETE','style' => 'display:inline']) !!}
+												{!! Form::open(['action' => ['Admin\WordsController@destroy', $word->id], 'method' => 'DELETE','style' => 'display:inline']) !!}
 												<button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
 												{!! Form::close() !!}
 											</td>
