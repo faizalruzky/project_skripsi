@@ -1,2 +1,2 @@
 <?php 
-Route::get('/surahs','SurahsPublicController@index');
+Route::resource('/surahs','SurahsPublicController');
