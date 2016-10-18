@@ -14,7 +14,7 @@
       <table style="border: 0px solid transparent" class="table table-responsive table-hover"> 
         <td>
           <div class="list-group">
-            <a href="{{ url('administrator/surahs',$surah->id) }}">
+            <a href="{{ url('/surahs',$surah->id) }}">
               <div class="col-md-1 col-sm-1 col-xs-1">{{ $surah->id }}</div>
               <div class="col-md-8 col-sm-8 col-xs-8">{{ $surah->nama_surat }}<br>{{ $surah->arti_surat }}</div>
               <h4 class="pull-right">{{ $surah->arab_surat }}</h4>
@@ -36,7 +36,7 @@
       <table style="border-color:white" class="table table-responsive table-hover"> 
         <td>
           <div class="list-group">
-            <a href="{{ url('administrator/surahs',$surah->id) }}">
+            <a href="{{ url('/surahs',$surah->id) }}">
               <div class="col-md-1 col-sm-1 col-xs-1">{{ $surah->id }}</div>
               <div class="col-md-8 col-sm-8 col-xs-8">{{ $surah->nama_surat }}<br>{{ $surah->arti_surat }}</div>
               <h4 class="pull-right">{{ $surah->arab_surat }}</h4>
@@ -58,7 +58,7 @@
       <table style="border-color:white" class="table table-responsive table-hover"> 
         <td>
           <div class="list-group">
-            <a href="{{ url('administrator/surahs',$surah->id) }}">
+            <a href="{{ url('/surahs',$surah->id) }}">
               <div  class="col-md-1 col-sm-1 col-xs-1">{{ $surah->id }}</h5></div>
               <div class="col-md-8 col-sm-8 col-xs-8">{{ $surah->nama_surat }}<br>{{ $surah->arti_surat }}</div>
               <h4 class="pull-right">{{ $surah->arab_surat }}</h4>
