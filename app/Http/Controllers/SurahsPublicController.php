@@ -58,7 +58,11 @@ class SurahsPublicController extends Controller
      */
     public function show($id)
     {
-        //
+        $surah = Surah::findOrFail($id);       
+        $qurans = $surah->qurans()->paginate(10);
+        $qurans->addToindex();
+       //dd(get_class($qurans));
+        return view('public/surahs.show', compact('qurans','surah'));
     }
 
     /**
