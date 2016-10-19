@@ -5,18 +5,23 @@
         <div class="navbar nav_title" style="border: 0; size:12">
           <a href="#" class="site_title"><i class="glyphicon glyphicon-list-alt"></i><span>Surat</span></a>
         </div>
-
+          <div class="col-md-12 col-sm-12 col-xs-12 form-group top_search">
+          <div class="input-group">
+            <input class="form-control" type="search" id="keywords" placeholder="Cari..."/>
+            <span class="input-group-btn">
+              <button id="searchsurahside" class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+            </span>
+          </div>
+        </div>
         <div class="clearfix"></div>
 
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-          <div class="menu_section">
-             <!-- <ul class="nav side-menu">
-              <li><a href="#"><i class="fa fa-book"></i> Surat</a>
-              </li>
-             
-            </ul> -->
+       <div style="overflow:scroll;height:1000px;border:0 solid transparent; ">
+       <div id="sidesurahs-list">
+          @include('public/surahs.list_surahs')
           </div>
+        </div>
         </div>
         <!-- /sidebar menu -->
       </div>
@@ -42,3 +47,4 @@
       <!-- /top navigation -->
   </div>
 </div>
+<script src="/assets/js/ajax-customsidenavsurat.js"></script>
