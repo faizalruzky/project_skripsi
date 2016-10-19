@@ -13,7 +13,7 @@
           <div class="input-group">
             <input class="form-control" type="search" id="keywords" placeholder="Cari..."/>
             <span class="input-group-btn">
-              <button id="search" class="btn btn-default" type="button">Go!</button>
+              <button id="search" class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
             </span>
           </div>
         </div>
