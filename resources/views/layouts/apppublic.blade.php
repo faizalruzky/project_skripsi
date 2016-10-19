@@ -97,6 +97,7 @@
 
     <script src="/assets/js/custom.min.js"></script>
     <script src="/assets/js/ajax-custom.js"></script>
+    <script src="/assets/js/ajax-customsidenavsurat.js"></script>
     <script src="/assets/js/ajax-customtafsir.js"></script>
     <script src="/assets/js/validator-custom.js"></script>
     <script src="/assets/js/skycons-custom.js"></script>
