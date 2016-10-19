@@ -1,2 +1,3 @@
 <?php 
-Route::get('/tafsirs','TafsirsPublicController@index');
+Route::resource('/tafsirs','TafsirsPublicController');
+Route::get('/listtafsirs','TafsirsPublicController@listtafsirs');
