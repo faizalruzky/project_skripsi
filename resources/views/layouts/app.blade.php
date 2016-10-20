@@ -43,7 +43,7 @@
 
 </body>
 <footer>
-<div class="container">
+<div>
         @include('public/shared.footer')
     </div>
 </footer>
