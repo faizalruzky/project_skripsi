@@ -6,7 +6,7 @@
 
 		<div class="col-md-8 col-md-offset-2">
 
-			<h1 class="text-primary" style="text-align: center;">Pencarian Ayat</h1>
+			<h1 class="text-primary" style="color:#2A3F54; text-align: center;"><i class="glyphicon glyphicon-search"></i> Pencarian Ayat</h1>
 
 		</div>
 
@@ -18,7 +18,7 @@
 
 	<div class="panel panel-primary">
 
-		<div class="panel-heading">
+		<div style="background:#2A3F54;border:0px solid transparent" class="panel-heading">
 
 			<div class="row">
 
