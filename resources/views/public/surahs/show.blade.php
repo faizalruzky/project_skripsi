@@ -15,6 +15,10 @@
   <li><a href="#">About</a></li>
 </div>
     <div class="row">
+    <ol class="breadcrumb">
+      <li><a href="{{ url('/') }}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+        <li class="active">Surat</li>
+      </ol>
      <div class="clearfix"></div>
         <div class="panel panel-info">
             <div class="panel-heading">
