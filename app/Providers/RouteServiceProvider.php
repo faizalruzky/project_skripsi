@@ -58,6 +58,7 @@ class RouteServiceProvider extends ServiceProvider
             require app_path('Http/routes/route-search.php');
             require app_path('Http/routes/route-surahs.php');
             require app_path('Http/routes/route-tafsirs.php');
+            require app_path('Http/routes/route-about.php');
             require app_path('Http/routes/admin/route-admin.php');
             require app_path('Http/routes/admin/route-login.php');
             require app_path('Http/routes/admin/route-logout.php');
