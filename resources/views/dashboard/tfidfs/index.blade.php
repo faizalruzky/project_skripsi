@@ -9,26 +9,13 @@
 	<hr>
 	<ol class="breadcrumb">
 		<li><a href="{{ url('/administrator') }}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-		@if ( Request::input('q') )
-		{{-- */$query_params =  Request::input('q')/* --}}
-		<li class="active"><a href="{{url('administrator/tfidfs')}}">Tfidf</a></li>
-		<li class="active">condition(  
-
-			{{-- */ $loop = 0 /* --}}
-			@foreach( $query_params as $key => $value )
-			@if ( $loop != 0 ) / @endif {{ $key }} : {{ $value }}
-			{{-- */ $loop++ /* --}}
-			@endforeach
-			)</li>
-			@else
 			<li class="active">Tfidf</li>
-			@endif
 		</ol>
 		<div class="row">
 
 			<div class="col-md-8 col-md-offset-2">
 
-				<h1 class="text-primary" style="text-align: center;">Cari Term</h1>
+				<h1 class="text-primary" style="color:#2A3F54; text-align: center;"><i class="glyphicon glyphicon-search"></i> Term</h1>
 
 			</div>
 
@@ -38,7 +25,7 @@
 		<div class="container">
 
 			<div class="panel panel-primary">
-				<div class="panel-heading">
+				<div style="background:#2A3F54;border:0px solid transparent" class="panel-heading">
 
 					<div class="row">
 
@@ -77,10 +64,6 @@
 
 						<div class="col-lg-6">
 
-
-
-
-
 							@if(!empty($freq))
 							<p>Jumlah Dokumen: {{ $num_rows }}</p>
 							@foreach($freq as $key => $value)
@@ -103,7 +86,7 @@
 
 				<div class="col-md-8 col-md-offset-2">
 
-					<h1 class="text-primary" style="text-align: center;">Hasil Perhitungan</h1>
+					<h1 class="text-primary" style="color:#2A3F54; text-align: center;">Hasil Perhitungan</h1>
 
 				</div>
 
