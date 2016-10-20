@@ -5,7 +5,7 @@
 	<!-- {!! Form::open(['url' => 'administrator/surahs']) !!} -->
 	<div class="page-title">
 		<div class="title_left">
-			<h3>Tambah Kata dasar</h3>
+			<h3>Kata dasar</h3>
 		</div>
 	</div>
 	<hr>
