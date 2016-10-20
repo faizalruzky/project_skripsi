@@ -8,7 +8,7 @@
 		</ul>
 		
 	</li>
-	<li><a href="#">About</a></li>
+	<li><a href="/about">About</a></li>
 </div>
 <div id="main">
 	@yield('content')
