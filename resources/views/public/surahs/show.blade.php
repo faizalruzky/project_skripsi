@@ -12,12 +12,12 @@
     <!-- </ul>
     
   </li> -->
-  <li><a href="#">About</a></li>
+  <li><a href="{{url('/about')}}">About</a></li>
 </div>
     <div class="row">
     <ol class="breadcrumb">
       <li><a href="{{ url('/') }}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-        <li class="active">Surat</li>
+        <li class="active">{{ $surah->nama_surat }}</li>
       </ol>
      <div class="clearfix"></div>
         <div class="panel panel-info">

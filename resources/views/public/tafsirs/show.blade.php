@@ -17,7 +17,7 @@
     <div class="row">
     <ol class="breadcrumb">
       <li><a href="{{ url('/') }}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-        <li class="active">Tafsir</li>
+        <li class="active">{{ $surah->nama_surat }}</li>
       </ol>
         <div class="clearfix"></div>
         <div class="panel panel-info">
