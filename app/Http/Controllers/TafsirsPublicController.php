@@ -128,4 +128,52 @@ class TafsirsPublicController extends Controller
 
 
     }
+    public function listjalalayn(Request $request)
+    {
+        if($request->ajax()){
+            if($request->keywords){
+                $tafsirs = Surah::Where('id','like','%'.$request->keywords.'%')->orWhere('nama_surat','like','%'.$request->keywords.'%')
+                ->orWhere('arti_surat','like','%'.$request->keywords.'%')->paginate(114);
+            }else{
+                $tafsirs = Surah::orderBy('id',$request->direction=='asc' ? $direction='desc' : $direction = 'asc')->paginate(114);
+            }
+            $request->direction=='asc' ? $direction='desc' : $direction = 'asc';
+            $view = (String)view('public/jalalayns.list_surahs')
+            ->with('tafsirs',$tafsirs)
+            ->render();
+            return response()->json(['view' => $view,'direction' => $direction]);
+        }else{
+            $tafsirs = Surah::orderBy('id','asc')->paginate(114);
+            return view('public/jalalayns.sidesurahs')
+            ->with('tafsirs',$tafsirs);
+        }
+
+
+    }
+    public function jalalayn(Request $request)
+    {
+        $tafsirs = Surah::all();
+        return view('public/jalalayns.index')->with('tafsirs',$tafsirs);
+    }
+    public function showjalalayn(Request $request, $id)
+    {
+        if($request->ajax()){
+            if($request->keywords){
+                $tafsirs = Surah::Where('id','like','%'.$request->keywords.'%')->orWhere('nama_surat','like','%'.$request->keywords.'%')
+                ->orWhere('arti_surat','like','%'.$request->keywords.'%');
+            }else{
+               $tafsirs = Surah::orderBy('id',$request->direction=='asc' ? $direction='desc' : $direction = 'asc');
+           }
+           $request->direction=='asc' ? $direction='desc' : $direction = 'asc';
+           $view = (String)view('/jalalayns.list_surahs')
+           ->with('tafsirs',$tafsirs);
+           return response()->json(['view' => $view,'direction' => $direction]);
+       }else{
+            $tafsirs = Surah::all();
+            $surah = Surah::findOrFail($id);       
+            $qurantafsirs = $surah->tafsirs()->paginate(15);
+       //dd(get_class($qurans));
+            return view('public/jalalayns.show', compact('tafsirs','surah','qurantafsirs'));
+        }
+    }
 }
