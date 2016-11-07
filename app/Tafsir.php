@@ -9,7 +9,7 @@ use App\Surah;
 class Tafsir extends Model
 {
     use ElasticquentTrait;
-    protected $fillable = ['surat_id','ayat_id','tafsir'];
+    protected $fillable = ['surat_id','ayat_id','tafsir','jalalayn'];
     public static function valid(){
     	return array(
     		'ayat_id'=>'required',
