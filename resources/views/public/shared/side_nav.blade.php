@@ -4,7 +4,8 @@
 	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-book"></i> Quran <span class="fa fa-chevron-down"></span></a>
 		<ul class="dropdown-menu nav child_menu" role="menu">
 			<li><a href="{{url('/surahs')}}"><i class="glyphicon glyphicon-list-alt"></i> Detail Surat </a></li>
-			<li><a href="{{url('/tafsirs')}}"><i class="glyphicon glyphicon-book"></i> Tafsir </a></li>
+			<li><a href="{{url('/tafsirs')}}"><i class="glyphicon glyphicon-book"></i> Tafsir Quraish Shihab </a></li>
+			<li><a href="{{url('/jalalayn')}}"><i class="glyphicon glyphicon-book"></i> Tafsir Jalalayn </a></li>
 		</ul>
 		
 	</li>
