@@ -10,14 +10,14 @@ $(document).ready(function() {
 
   $(document).on('click', '.pagination a', function(e) {
 
-    get_page($(this).attr('href').split('page=')[1]);
+    get_pagetafsir($(this).attr('href').split('page=')[1]);
 
     e.preventDefault();
 
   });
  }); 
 
-function get_page(page) {
+function get_pagetafsir(page) {
 
   $.ajax({
 
