@@ -10,7 +10,7 @@ use App\Tfidf;
 class Quran extends Model
 {
     use ElasticquentTrait;
-    protected $fillable = ['surat_id','nama_surat','arab_surat','ayat_id','text_quran','terjemah','tafsir_id','tafsir','jalalayn'];
+    protected $fillable = ['surat_id','nama_surat','arab_surat','ayat_id','text_quran','terjemah','tafsir_id'];
     public static function valid(){
     	return array(
     		'ayat_id'=>'required',
