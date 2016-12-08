@@ -4,7 +4,7 @@
                 <tr>
                   <th class="text-center"><a href="" id="id">No Surat<i id="ic-direction"></i></a></th>
                   <th class="text-center">Nama Surat</th>          
-                  <th class="text-center">Option</th>
+                  <!-- <th class="text-center">Option</th> -->
                 </tr>
                 {{-- */$x=0;/* --}}
                 @foreach ($surahs as $surah)
@@ -12,7 +12,7 @@
                 <tr>
                   <td class="text-center">{{ $surah->id }}</td>
                   <td><a href="{{ url('administrator/surahs',$surah->id) }}">{{ $surah->nama_surat }} <h4>{{ $surah->arab_surat }}</h4> {{ $surah->arti_surat }}</a></td>
-                  <div>
+                  <!-- <div>
                     <td class="text-center">
                       <a class="btn btn-info" href="{{ action('Admin\SurahsController@edit', $surah->id) }}"><i class="fa fa-pencil"></i> Edit</a>
 
@@ -20,7 +20,7 @@
                       <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
                       {!! Form::close() !!}
                     </td>
-                  </div>
+                  </div> -->
                 </tr>
                 @endforeach
               </table>
