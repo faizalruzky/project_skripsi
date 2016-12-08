@@ -63,11 +63,7 @@
 					<h3 class="text-danger">Ayat {{ $value['ayat_id'] }}</h3>
 					<h3 class="text-right">{{ $value['text_quran'] }}</h3>
 					<small>Terjemah</small>
-					<p class="text-justify">{{ $value['terjemah'] }}</p>
-					<small>Tafsir Quraish Shihab</small>
-					<p class="text-justify">{{ $value['tafsir'] }}</p>
-					<small>Tafsir Jalalayn</small>
-					<p class="text-justify">{{ $value['jalalayn'] }}</p>
+					<p class="text-justify">{{ $value['terjemah'] }}</p>				
 					@endforeach						
 					@endif
 
