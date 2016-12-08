@@ -38,7 +38,7 @@ class TafsirsController extends Controller
             return response()->json(['view' => $view,'direction' => $direction]);
         }else{
             $tafsirs = Surah::orderBy('id','asc')->paginate(10);
-            $tafsirs->addToindex();
+            // $tafsirs->addToindex();
             return view('dashboard/tafsirs.index')
             ->with('tafsirs',$tafsirs);
         }
