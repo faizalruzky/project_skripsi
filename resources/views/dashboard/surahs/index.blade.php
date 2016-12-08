@@ -39,9 +39,9 @@
       <div class="panel panel-info">
         <div class="panel-heading">
           <h3 class="visible-lg-inline visible-md-inline">Surat</h3>
-          <a href="{{ url('administrator/surahs/create') }}" class="btn btn-primary pull-right">
+          <!-- <a href="{{ url('administrator/surahs/create') }}" class="btn btn-primary pull-right">
             <i class="fa fa-plus"></i> Create Surat
-          </a>
+          </a> -->
         </div>
         <div class="panel-body">
           <div id="surahs-list"> 
